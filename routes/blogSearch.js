@@ -3,6 +3,6 @@ const blogSearch = require("../controllers/blogSearch.js");
 
 const router = new express.Router();
 
-router.get("/", blogSearch.get)
+router.get("/", blogSearch.get);
 
 module.exports = router;

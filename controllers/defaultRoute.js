@@ -1,5 +1,11 @@
 module.exports = {
   get: (req, res) => {
-    res.send("This is the default route...")
+    res.json({
+      "message": "This is the default route",
+      "endpoints": [
+        "/api/blog-stats",
+        "/api/blog-search?query="
+      ]
+    });
   }
 }

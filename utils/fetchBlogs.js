@@ -5,11 +5,14 @@ const customCache = new Map();
 
 const fetchBlogs = _.memoize(
   async () => {
-    const currentTime = Date.now();
+    const currentTime = Date.now(); //Get the current time
     const cacheEntry = customCache.get('cache-key');
+
     if (cacheEntry && currentTime - cacheEntry.timestamp < 5000) {
       return cacheEntry.data;
-    } else {
+    }
+    else
+    {
       const response = await fetch(process.env.URL, {
         method: "GET",
         headers: {
@@ -22,11 +25,13 @@ const fetchBlogs = _.memoize(
     }
   },
 
+  //Resolver
   ()=>{
     return "cache-key";
   }
 );
 
+//Clear the cache after every 5 seconds
 setInterval(() => {
   customCache.clear();
 }, 5000);

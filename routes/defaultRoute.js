@@ -3,6 +3,6 @@ const defaultRoute = require("../controllers/defaultRoute.js");
 
 const router = new express.Router();
 
-router.get("/", defaultRoute.get)
+router.get("/", defaultRoute.get);
 
 module.exports = router;
