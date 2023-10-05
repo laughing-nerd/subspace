@@ -1,9 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const blogStatsRoute = require("./routes/blogStats.js");
 const blogSearchRoute = require("./routes/blogSearch.js");
 const defaultRoute = require("./routes/defaultRoute.js");
 
 const app = new express();
+app.use(cors());
 
 //Routes
 app.use("/api/blog-stats", blogStatsRoute);
